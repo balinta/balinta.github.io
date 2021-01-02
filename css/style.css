@@ -106,7 +106,11 @@ a:focus {
 }
 
 .navbar-custom a {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-custom a:hover {
+  color: white;
 }
 
 .navbar-custom .nav li.active {
@@ -124,7 +128,7 @@ a:focus {
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a.active {
   outline: 0;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: transparent;
 }
 
 @media (min-width: 767px) {
@@ -155,7 +159,7 @@ a:focus {
   padding: 100px 0;
   text-align: center;
   color: #fff;
-  background: url(../img/intro-bg.jpeg) no-repeat bottom center scroll;
+  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
   background-color: #000000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -169,7 +173,8 @@ a:focus {
 }
 
 .intro .intro-body .brand-heading {
-  font-size: 40px;
+  margin-bottom: 0;
+  font-size: 45px;
 }
 
 .intro .intro-body .intro-text {
@@ -188,6 +193,7 @@ a:focus {
   }
 
   .intro .intro-body .brand-heading {
+    margin-bottom: 10px;
     font-size: 80px;
   }
 
@@ -209,7 +215,7 @@ a:focus {
   padding: 7px 16px;
   border-radius: 35px;
   font-size: 40px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.3);
   background: 0 0;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
@@ -219,14 +225,13 @@ a:focus {
 .btn-circle:hover,
 .btn-circle:focus {
   outline: 0;
-  color: rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .bounce {
   animation-iteration-count: infinite;
   animation-duration: 1.5s;
-  animation: bounce 3s ease infinite;
+  animation: bounce 2s ease infinite;
   transform-origin: 50% 50%;
 }
 
@@ -234,22 +239,19 @@ a:focus {
   0% {
     transform: translateY(0);
   }
-  5.55556% {
+  15% {
     transform: translateY(0);
   }
-  11.11111% {
-    transform: translateY(0);
-  }
-  22.22222% {
+  30% {
     transform: translateY(-15px);
   }
-  27.77778% {
+  40% {
     transform: translateY(0);
   }
-  33.33333% {
+  50% {
     transform: translateY(-15px);
   }
-  44.44444% {
+  65% {
     transform: translateY(0);
   }
   100% {
@@ -315,10 +317,6 @@ a:focus {
   outline: 0;
   color: #000000;
   background-color: #219ab3;
-}
-
-li a.page-scroll {
-  background-color: rgba(0, 0, 0, 1);
 }
 
 ul.skills {
