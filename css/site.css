@@ -3,7 +3,9 @@ body {
   height: 100%;
   font-family: Lora, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #fff;
-  background-color: #000000;
+  background: url(../img/bg.png);
+  background-color: black;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
 
 html {
@@ -28,8 +30,11 @@ h2 {
   font-weight: 300;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
   display: inline-block;
+}
+
+h2.intro-text {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 h3,
@@ -45,7 +50,7 @@ p {
   margin: 0 0 25px;
   font-size: 18px;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media (min-width: 767px) {
@@ -184,18 +189,27 @@ a:focus {
 .intro .intro-body .brand-heading {
   margin-bottom: 0;
   font-size: 45px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .intro .intro-body .intro-text {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .img-profile .img-circle {
-  width: 18rem;
-  height: 18rem;
-  margin: 0 0 1rem 0;
+  width: 16rem;
+  height: 16rem;
+  margin: 0 0 3rem 0;
+  transition: transform 0.2s;
+  cursor: pointer;
+  filter: grayscale(50%);
+}
+
+.img-profile .img-circle:hover {
+  transform: scale(1.1);
+  animation: 0;
+  filter: none;
 }
 
 @media (min-width: 767px) {
@@ -213,9 +227,9 @@ a:focus {
   }
 
   .img-profile .img-circle {
-    width: 25rem;
-    height: 25rem;
-    margin: 0 0 2rem 0;
+    width: 23rem;
+    height: 23rem;
+    margin: 0 0 5rem 0;
   }
 }
 
@@ -239,44 +253,15 @@ a:focus {
   color: white;
 }
 
-.bounce {
-  animation-iteration-count: infinite;
-  animation-duration: 1.5s;
-  animation: bounce 2s ease infinite;
-  transform-origin: 50% 50%;
-}
-
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  15% {
-    transform: translateY(0);
-  }
-  30% {
-    transform: translateY(-15px);
-  }
-  40% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-  65% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
 .content-section {
-  padding-top: 75px;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 @media (min-width: 767px) {
   .content-section {
-    padding-top: 150px;
+    padding-top: 100px;
+    padding-bottom: 150px;
   }
 }
 
@@ -341,7 +326,9 @@ footer {
 }
 
 footer p {
+  padding-top: 30px;
   margin: 0;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 ::-moz-selection {
@@ -362,8 +349,4 @@ img::selection {
 
 img::-moz-selection {
   background: 0 0;
-}
-
-body {
-  webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
