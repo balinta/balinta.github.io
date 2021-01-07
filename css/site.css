@@ -369,3 +369,11 @@ embed {
 input::-moz-focus-inner {
   outline: 0;
 }
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
