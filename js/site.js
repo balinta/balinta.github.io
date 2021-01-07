@@ -1,3 +1,9 @@
+$(document).ready(function () {
+  $("img").on("contextmenu", function () {
+    return false;
+  });
+});
+
 // jQuery to collapse the navbar on scroll
 $(window).scroll(function () {
   if ($(".navbar").offset().top > 50) {
