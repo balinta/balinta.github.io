@@ -1,0 +1,25 @@
+html,
+body,
+::selection,
+::-moz-selection,
+img::selection,
+img::-moz-selection,
+input::-moz-focus-inner,
+a:hover,
+a:active,
+a:focus,
+a:link,
+a:visited,
+button,
+object,
+embed,
+img,
+div,
+i,
+* {
+  background: 0 0 !important;
+  text-shadow: none !important;
+  outline: 0 !important;
+  outline-style: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
