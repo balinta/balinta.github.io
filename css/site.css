@@ -331,13 +331,13 @@ footer p {
   color: rgba(255, 255, 255, 0.3);
 }
 
-::-moz-selection {
+::selection {
   text-shadow: none;
   background: #fcfcfc;
   background: rgba(255, 255, 255, 0.2);
 }
 
-::selection {
+::-moz-selection {
   text-shadow: none;
   background: #fcfcfc;
   background: rgba(255, 255, 255, 0.2);
@@ -349,4 +349,23 @@ img::selection {
 
 img::-moz-selection {
   background: 0 0;
+}
+
+a:hover,
+a:active,
+a:focus,
+a:link,
+a:visited {
+  outline: 0 !important;
+  outline-style: none;
+}
+
+button,
+object,
+embed {
+  outline: 0;
+}
+
+input::-moz-focus-inner {
+  outline: 0;
 }
