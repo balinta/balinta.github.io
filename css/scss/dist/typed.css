@@ -1,0 +1,213 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@keyframes typed {
+  /* string 1, char 1 */
+  0%,
+  0.1853354037% {
+    content: "S";
+  }
+  /* string 1, char 2 */
+  0.1863354037%,
+  0.3716708075% {
+    content: "So";
+  }
+  /* string 1, char 3 */
+  0.3726708075%,
+  0.5580062112% {
+    content: "Sof";
+  }
+  /* string 1, char 4 */
+  0.5590062112%,
+  0.7443416149% {
+    content: "Soft";
+  }
+  /* string 1, char 5 */
+  0.7453416149%,
+  0.9306770186% {
+    content: "Softw";
+  }
+  /* string 1, char 6 */
+  0.9316770186%,
+  1.1170124224% {
+    content: "Softwa";
+  }
+  /* string 1, char 7 */
+  1.1180124224%,
+  1.3033478261% {
+    content: "Softwar";
+  }
+  /* string 1, char 8 */
+  1.3043478261%,
+  1.4896832298% {
+    content: "Software";
+  }
+  /* string 1, char 9 */
+  1.4906832298%,
+  1.6760186335% {
+    content: "Software ";
+  }
+  /* string 1, char 10 */
+  1.6770186335%,
+  1.8623540373% {
+    content: "Software E";
+  }
+  /* string 1, char 11 */
+  1.8633540373%,
+  2.048689441% {
+    content: "Software En";
+  }
+  /* string 1, char 12 */
+  2.049689441%,
+  2.2350248447% {
+    content: "Software Eng";
+  }
+  /* string 1, char 13 */
+  2.2360248447%,
+  2.4213602484% {
+    content: "Software Engi";
+  }
+  /* string 1, char 14 */
+  2.4223602484%,
+  2.6076956522% {
+    content: "Software Engin";
+  }
+  /* string 1, char 15 */
+  2.6086956522%,
+  2.7940310559% {
+    content: "Software Engine";
+  }
+  /* string 1, char 16 */
+  2.7950310559%,
+  2.9803664596% {
+    content: "Software Enginee";
+  }
+  /* string 1, char 17 */
+  2.9813664596%,
+  96.4586273292% {
+    content: "Software Engineer";
+  }
+  /* string 1, char 18 */
+  96.4596273292%,
+  96.5828509317% {
+    content: "Software Enginee";
+  }
+  /* string 1, char 19 */
+  96.5838509317%,
+  96.7070745342% {
+    content: "Software Engine";
+  }
+  /* string 1, char 20 */
+  96.7080745342%,
+  96.8312981366% {
+    content: "Software Engin";
+  }
+  /* string 1, char 21 */
+  96.8322981366%,
+  96.9555217391% {
+    content: "Software Engi";
+  }
+  /* string 1, char 22 */
+  96.9565217391%,
+  97.0797453416% {
+    content: "Software Eng";
+  }
+  /* string 1, char 23 */
+  97.0807453416%,
+  97.2039689441% {
+    content: "Software En";
+  }
+  /* string 1, char 24 */
+  97.2049689441%,
+  97.3281925466% {
+    content: "Software E";
+  }
+  /* string 1, char 25 */
+  97.3291925466%,
+  97.4524161491% {
+    content: "Software ";
+  }
+  /* string 1, char 26 */
+  97.4534161491%,
+  97.5766397516% {
+    content: "Software";
+  }
+  /* string 1, char 27 */
+  97.5776397516%,
+  97.700863354% {
+    content: "Softwar";
+  }
+  /* string 1, char 28 */
+  97.701863354%,
+  97.8250869565% {
+    content: "Softwa";
+  }
+  /* string 1, char 29 */
+  97.8260869565%,
+  97.949310559% {
+    content: "Softw";
+  }
+  /* string 1, char 30 */
+  97.950310559%,
+  98.0735341615% {
+    content: "Soft";
+  }
+  /* string 1, char 31 */
+  98.0745341615%,
+  98.197757764% {
+    content: "Sof";
+  }
+  /* string 1, char 32 */
+  98.198757764%,
+  98.3219813665% {
+    content: "So";
+  }
+  /* string 1, char 33 */
+  98.3229813665%,
+  98.4462049689% {
+    content: "S";
+  }
+  /* string 1, char 34 */
+  98.4472049689%,
+  100% {
+    content: "​";
+  }
+}
+@keyframes beam-blink {
+  75% {
+    border-color: transparent;
+  }
+}
+* {
+  backface-visibility: hidden;
+}
+
+.typed {
+  align-items: center;
+  justify-content: center;
+  background-repeat: repeat-y;
+  background-position: center center;
+  background-size: cover, 100% 3px;
+  font-size: calc(9px + 2vw);
+  font-family: "VT323", monospace, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.typed::after {
+  content: "​";
+  position: relative;
+  display: inline-block;
+  padding-right: 3px;
+  padding-right: calc(3px + 0.1vw);
+  border-right: 10px solid rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  animation: typed 64.4s linear 1s infinite, beam-blink 1s infinite;
+}
+
+@media (min-width: 767px) {
+  .typed {
+    font-size: calc(13px + 2vw);
+  }
+  .typed::after {
+    border-right: 15px solid rgba(255, 255, 255, 0.5);
+  }
+}

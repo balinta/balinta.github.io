@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+$strings: ("Software Engineer");
+
+// timings
+$durCharFwd: 0.12; // character typed
+$durFullGap: 60; // time between typed/delete
+$durCharBwd: 0.08; // character deleted
+$durDoneGap: 1; // time between strings
+
+$charCount: 0;
+$durTotal: 0;
+
+@each $string in $strings {
+  $charCount: $charCount + str-length($string);
+  $durTotal: $durTotal +
+    (str-length($string) * ($durCharFwd + $durCharBwd)) +
+    $durFullGap +
+    $durDoneGap;
+}
+
+@function percent($string, $letter, $modifier) {
+  $stringsPast: $string - 1;
+  $time: 0;
+
+  @while $stringsPast>0 {
+    $time: $time +
+      (
+        ($durCharFwd + $durCharBwd) * (str-length(nth($strings, $stringsPast)))
+      ) +
+      $durFullGap +
+      $durDoneGap;
+    $stringsPast: $stringsPast - 1;
+  }
+
+  @if $letter <=str-length(nth($strings, $string)) {
+    $time: $time + ($durCharFwd * ($letter - 1));
+  } @else {
+    $time: $time +
+      ($durCharFwd * str-length(nth($strings, $string))) +
+      $durFullGap +
+      ($durCharBwd * ($letter - str-length(nth($strings, $string))));
+  }
+
+  @return ($time / $durTotal * 100 + $modifier)+"%";
+}
+
+$currentPercentage: 0;
+
+@keyframes typed {
+  @for $i from 1 through length($strings) {
+    // @for $j from 1 through (str-length(nth($strings, $i)) * 2 - 1) {
+    @for $j from 1 through (str-length(nth($strings, $i)) * 2) {
+      /* string #{$i}, char #{$j} */
+      @if $j < str-length(nth($strings, $i)) * 2 {
+        // not last character deleted
+        #{percent($i, $j, 0)},
+        #{percent($i, $j+1, -0.001)} {
+          @if $j <=str-length(nth($strings, $i)) {
+            content: quote(#{str_slice(nth($strings, $i), 1, $j)});
+          } @else {
+            content: quote(
+              #{str_slice(
+                  nth($strings, $i),
+                  1,
+                  str-length(nth($strings, $i)) -
+                    ($j - str-length(nth($strings, $i)))
+                )}
+            );
+          }
+        }
+      } @else {
+        @if $i < length($strings) {
+          // not last string
+          #{percent($i, $j, 0)},
+          #{percent($i+1, 1, -0.001)} {
+            content: "​"; // zero-width space to retain element height
+          }
+        } @else {
+          // last string
+          #{percent($i, $j, 0)},
+          100% {
+            content: "​"; // zero-width space to retain element height
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes beam-blink {
+  75% {
+    border-color: transparent;
+  }
+}
+
+* {
+  backface-visibility: hidden;
+}
+
+.typed {
+  align-items: center;
+  justify-content: center;
+  background-repeat: repeat-y;
+  background-position: center center;
+  background-size: cover, 100% 3px;
+  font-size: calc(9px + 2vw);
+  font-family: "VT323", monospace, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &::after {
+    content: "​"; // zero-width space to retain element height
+    position: relative;
+    display: inline-block;
+    padding-right: 3px;
+    padding-right: calc(3px + 0.1vw);
+    border-right: 10px solid rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    animation: typed #{$durTotal + "s"} linear 1s infinite,
+      beam-blink 1s infinite;
+  }
+}
+
+@media (min-width: 767px) {
+  .typed {
+    font-size: calc(13px + 2vw);
+
+    &::after {
+      border-right: 15px solid rgba(255, 255, 255, 0.5);
+    }
+  }
+}
