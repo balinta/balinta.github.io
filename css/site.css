@@ -1,7 +1,7 @@
 body {
   width: 100%;
   height: 100%;
-  font-family: Lora, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #fff;
   background: url(../img/bg.png);
   background-color: black;
@@ -35,9 +35,10 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 25px;
   font-weight: 300;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: space-between;
 }
 
 p {
@@ -188,7 +189,7 @@ a:focus {
   font-size: 45px;
   color: rgba(255, 255, 255, 0.8);
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-radius: 8px;
   text-shadow: 0 0 8px black;
 }
 
@@ -197,7 +198,7 @@ a:focus {
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.75);
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+  border-radius: 5px;
   text-shadow: 0 0 5px black;
   max-width: 21rem;
   margin-left: auto;
