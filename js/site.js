@@ -4,8 +4,9 @@ $(document).ready(function () {
   });
   var ua = window.navigator.userAgent;
   var isIE = /MSIE|Trident/.test(ua);
-  if (isIE) {
-    $("#title").addClass("ie");
+  var isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+  if (isIE || isSafari) {
+    $("#title").addClass("no-anim");
   }
 });
 

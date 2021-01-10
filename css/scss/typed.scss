@@ -121,7 +121,7 @@ $currentPercentage: 0;
       beam-blink 1s infinite;
   }
 
-  &.ie::after {
+  &.no-anim::after {
     content: $strings;
   }
 }

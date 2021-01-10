@@ -202,7 +202,7 @@
   white-space: nowrap;
   animation: typed 64.4s linear 1s infinite, beam-blink 1s infinite;
 }
-.typed.ie::after {
+.typed.no-anim::after {
   content: "Software Engineer";
 }
 
