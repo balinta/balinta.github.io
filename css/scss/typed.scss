@@ -120,6 +120,10 @@ $currentPercentage: 0;
     animation: typed #{$durTotal + "s"} linear 1s infinite,
       beam-blink 1s infinite;
   }
+
+  &.ie::after {
+    content: $strings;
+  }
 }
 
 @media (min-width: 767px) {

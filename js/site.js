@@ -2,6 +2,11 @@ $(document).ready(function () {
   $("img").on("contextmenu", function () {
     return false;
   });
+  var ua = window.navigator.userAgent;
+  var isIE = /MSIE|Trident/.test(ua);
+  if (isIE) {
+    $("#title").addClass("ie");
+  }
 });
 
 // jQuery to collapse the navbar on scroll
