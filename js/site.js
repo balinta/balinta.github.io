@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $("#first-nav").hide();
   $("img").on("contextmenu", function () {
     return false;
   });
@@ -8,6 +9,7 @@ $(document).ready(function () {
   if (isIE || isSafari) {
     $("#title").addClass("no-anim");
   }
+  $("#first-nav").delay(4000).fadeIn("slow");
 });
 
 // jQuery to collapse the navbar on scroll
