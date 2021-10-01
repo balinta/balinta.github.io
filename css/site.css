@@ -1,16 +1,10 @@
+/***** HTML Elements *****/
+
 html,
 body {
+  letter-spacing: 1px;
   height: 100%;
   width: 100%;
-}
-
-.navbar {
-  padding-bottom: 0;
-  padding-top: 1.25rem;
-}
-
-.nav-item {
-  padding-left: 1.75rem;
 }
 
 header,
@@ -19,7 +13,68 @@ footer {
   text-align: center;
 }
 
-header {
+a {
+  text-decoration: none;
+}
+
+/***** Navigation Bar *****/
+
+.navbar {
+  padding-bottom: 0;
+  padding-top: 1.65rem;
+}
+
+.navbar > div {
+  margin: 0 auto;
+  max-width: 73rem;
+  padding: 0 2rem;
+}
+
+.navbar a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.navbar .navbar-brand {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+
+.navbar .nav-item {
+  padding-left: 1.5rem;
+}
+
+.navbar .nav-link {
+  border-radius: 5px;
+}
+
+.navbar .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  opacity: 0.75;
+}
+
+.nav-collapse {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 0;
+}
+
+/***** Custom Elements *****/
+
+.section-title {
+  background-color: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+#intro {
   background: url(../img/intro-bg.jpg) no-repeat bottom center fixed;
   background-color: #000;
   background-size: cover;
@@ -27,18 +82,29 @@ header {
   width: 100%;
 }
 
-.container-fluid {
-  padding: 0 20%;
-}
-
-header.container-fluid,
-section.container-fluid {
-  padding-bottom: 20%;
-  padding-top: 10%;
-}
-
 .profile-img {
-  min-width: 8rem;
   max-width: 12rem;
+  min-width: 8rem;
   width: 25%;
+}
+
+#experience {
+  background: url(../img/bg.png);
+  background-color: #000;
+}
+
+.contact-items li {
+  display: inline;
+  padding: 0 0.5rem;
+}
+
+.contact-items li a {
+  color: #219ab3;
+}
+
+/***** Overrides *****/
+
+header > .container-fluid,
+section > .container-fluid {
+  padding: 10% 10% 20%;
 }

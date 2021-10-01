@@ -1,27 +1,35 @@
 $(document).ready(function () {
-  $("#first-nav").hide();
-  $("img").on("contextmenu", function () {
-    return false;
-  });
   var ua = window.navigator.userAgent;
   var isIE = /MSIE|Trident/.test(ua);
   var isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+
+  // Hide top navigation arrow
+  $("#first-nav").hide();
+
+  // Disable right click on images
+  $("img").on("contextmenu", function () {
+    return false;
+  });
+
+  // Disable title animation
   if (isIE || isSafari) {
     $("#title").addClass("no-anim");
   }
+
+  // Top navigation arrow delay
   $("#first-nav").delay(4000).fadeIn("slow");
 });
 
-// jQuery to collapse the navbar on scroll
 $(window).scroll(function () {
+  // Collapse navbar on scroll
   if ($(".navbar").offset().top > 50) {
-    $(".navbar-fixed-top").addClass("top-nav-collapse");
+    $(".fixed-top").addClass("nav-collapse");
   } else {
-    $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    $(".fixed-top").removeClass("nav-collapse");
   }
 });
 
-// jQuery for page scrolling feature - requires jQuery Easing plugin
+// Page scrolling feature - requires jQuery Easing plugin
 $(function () {
   $("a.page-scroll").bind("click", function (event) {
     var $anchor = $(this);
@@ -31,14 +39,14 @@ $(function () {
         {
           scrollTop: $($anchor.attr("href")).offset().top,
         },
-        1000,
+        0,
         "easeInOutExpo"
       );
     event.preventDefault();
   });
 });
 
-// Closes the Responsive Menu on Menu Item Click
+// Close Responsive Menu on Menu Item Click
 $(".navbar-collapse ul li a").click(function () {
   $(".navbar-toggle:visible").click();
 });
