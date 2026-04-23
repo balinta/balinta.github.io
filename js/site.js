@@ -1,50 +1,72 @@
-$(document).ready(function () {
-  $("#first-nav").hide();
-  $("img").on("contextmenu", function () {
-    return false;
-  });
-  var ua = window.navigator.userAgent;
-  var isIE = /MSIE|Trident/.test(ua);
-  var isSafari = /^((?!chrome|android).)*safari/i.test(ua);
-  if (isIE || isSafari) {
-    $("#title").addClass("no-anim");
+document.addEventListener("DOMContentLoaded", () => {
+  const phrases = ["Senior .NET Engineer", "Cloud-native platform builder", "API-first integration specialist"];
+  const titleElement = document.getElementById("title");
+  let phraseIndex = 0;
+  let characterIndex = 0;
+
+  const typeNext = () => {
+    if (!titleElement) {
+      return;
+    }
+
+    const currentPhrase = phrases[phraseIndex];
+    titleElement.textContent = currentPhrase.slice(0, characterIndex);
+
+    if (characterIndex < currentPhrase.length) {
+      characterIndex += 1;
+      setTimeout(typeNext, 80);
+    } else {
+      setTimeout(() => {
+        characterIndex = 0;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeNext();
+      }, 1800);
+    }
+  };
+
+  if (titleElement) {
+    typeNext();
   }
-  $("#first-nav").delay(4000).fadeIn("slow");
+
+  document.querySelectorAll("a.page-scroll").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  document.querySelectorAll(".navbar-collapse ul li a").forEach((link) => {
+    link.addEventListener("click", () => {
+      const toggleButton = document.querySelector(".navbar-toggle");
+      if (toggleButton && getComputedStyle(toggleButton).display !== "none") {
+        toggleButton.click();
+      }
+    });
+  });
+
+  document.querySelectorAll("a").forEach((anchor) => {
+    anchor.addEventListener("mouseup", () => anchor.blur());
+  });
+
+  // Timeline expand/collapse functionality
+  window.toggleEvent = function (headerElement) {
+    const eventElement = headerElement.closest(".event");
+    eventElement.classList.toggle("expanded");
+  };
 });
 
-// jQuery to collapse the navbar on scroll
-$(window).scroll(function () {
-  if ($(".navbar").offset().top > 50) {
-    $(".navbar-fixed-top").addClass("top-nav-collapse");
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar-fixed-top");
+  if (!navbar) {
+    return;
+  }
+
+  if (window.scrollY > 50) {
+    navbar.classList.add("top-nav-collapse");
   } else {
-    $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    navbar.classList.remove("top-nav-collapse");
   }
-});
-
-// jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function () {
-  $("a.page-scroll").bind("click", function (event) {
-    var $anchor = $(this);
-    $("html, body")
-      .stop()
-      .animate(
-        {
-          scrollTop: $($anchor.attr("href")).offset().top,
-        },
-        1000,
-        "easeInOutExpo"
-      );
-    event.preventDefault();
-  });
-});
-
-// Closes the Responsive Menu on Menu Item Click
-$(".navbar-collapse ul li a").click(function () {
-  $(".navbar-toggle:visible").click();
-});
-
-// remove the focused state after click,
-// otherwise bootstrap will still highlight the link
-$("a").mouseup(function () {
-  $(this).blur();
 });
